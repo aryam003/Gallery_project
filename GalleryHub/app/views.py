@@ -8,23 +8,28 @@ from django.contrib import messages
 # Create your views here.
 
 def user_login(req):
-  
-   
-
+    if 'shop' in req.session:
+        return redirect(index)
+    if 'user' in req.session:
+        return redirect(index)
+    
     if req.method=='POST':
         uname=req.POST['uname']
-    
         password=req.POST['password']
         data=authenticate(username=uname,password=password)
         if data:
-            login(req,data)    
-            req.session['user']=uname
-            return redirect(index)
+            login(req,data)
+            if data.is_superuser:
+                req.session['shop']=uname
+                return redirect(index)
+            else:
+                req.session['user']=uname
+                return redirect(index)
         else:
-            messages.warning(req, "Invalid Username or Password")
-            return redirect(user_login)
-    else:
-        return render(req,'login.html')    
+            messages.warning(req,"invalid user or password")  
+        return redirect(user_login)
+    else:      
+        return render(req,'login.html')  
 
         
 def shop_logout(req):

@@ -121,7 +121,7 @@
 
 
 
-@media (max-width: 276px) {
+@media (max-width: 576px) {
     .navbar-nav {
         text-align: center;
     }
