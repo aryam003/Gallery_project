@@ -111,12 +111,98 @@
   margin-bottom: 5px;
   }
   
-  main,img{
+  /* main,img{
     width: 100%;
     left: 0px;
     position: relative;
     padding-top: 70px;
+  } */
+
+
+  /* Container to hold all sections */
+.file-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  padding: 20px;
+}
+
+/* Styling for each file section */
+.file-section {
+  background-color: #f5f5f5;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 15px;
+  width: 280px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  transition: transform 0.3s ease;
+}
+
+.file-section:hover {
+  transform: scale(1.05);
+}
+
+/* Styling for the images */
+.file-image {
+  width: 100%;
+  height: auto;
+  max-height: 200px;
+  border-radius: 8px;
+  object-fit: cover;
+}
+
+/* Button styling */
+.file-actions {
+  margin-top: 15px;
+}
+
+.file-actions .btn {
+  display: inline-block;
+  margin: 5px 0;
+  padding: 10px 15px;
+  font-size: 14px;
+  text-decoration: none;
+  border-radius: 5px;
+  background-color: rgb(16, 65, 80);
+  color: white;
+  transition: background-color 0.3s ease;
+}
+
+.file-actions .btn:hover {
+  background-color: rgb(8, 41, 50);
+}
+
+/* Left, Center, and Right specific styles */
+.left {
+  flex: 1;
+  text-align: left;
+}
+
+.center {
+  flex: 1;
+  text-align: center;
+}
+
+.right {
+  flex: 1;
+  text-align: right;
+}
+
+/* Responsive styling for smaller screens */
+@media (max-width: 768px) {
+  .file-container {
+      flex-direction: column;
+      align-items: center;
   }
+
+  .file-section {
+      width: 90%;
+      margin-bottom: 20px;
+  }
+}
+
 
 
 
